@@ -8,10 +8,18 @@ public class MainGame : MonoBehaviour
     public GameObject[] PrefabGround;
     public GameObject Player;
     public Transform Map;
-    public int Size = 10;
+    public int Size;
     public float Distance = 1;
     int[,] map;
     Vector3Int coordPlayer;
+
+    public static MainGame Instance;
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(gameObject);    // Suppression d'une instance précédente (sécurité)
+        Instance = this;
+    }
 
     IEnumerator Start()
     {
@@ -55,6 +63,7 @@ public class MainGame : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
@@ -69,8 +78,7 @@ public class MainGame : MonoBehaviour
             }
             else
             {
-                Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
-                coordPlayer.z++;
+                MoveTop();
             }
         }
         if (Input.GetKeyDown(KeyCode.S))
@@ -81,8 +89,7 @@ public class MainGame : MonoBehaviour
             }
             else
             {
-                Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
-                coordPlayer.z--;
+                MoveBot();
             }
         }
         if (Input.GetKeyDown(KeyCode.Q))
@@ -93,8 +100,7 @@ public class MainGame : MonoBehaviour
             }
             else
             {
-                Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
-                coordPlayer.x--;
+                MoveLeft();
             }
         }
         if (Input.GetKeyDown(KeyCode.D))
@@ -105,9 +111,29 @@ public class MainGame : MonoBehaviour
             }
             else
             {
-                Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
-                coordPlayer.x++;
+                MoveRight();
             }
         }
+    }
+
+    public void MoveLeft()
+    {
+        Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
+        coordPlayer.x--;
+    }
+    public void MoveRight()
+    {
+        Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
+        coordPlayer.x++;
+    }
+    public void MoveTop()
+    {
+        Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
+        coordPlayer.z++;
+    }
+    public void MoveBot()
+    {
+        Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
+        coordPlayer.z--;
     }
 }
