@@ -12,6 +12,7 @@ public class MainGame : MonoBehaviour
     public float Distance = 1;
     int[,] map;
     Vector3Int coordPlayer;
+    const float timeToMove = .1f;
 
     public static MainGame Instance;
     private void Awake()
@@ -50,12 +51,12 @@ public class MainGame : MonoBehaviour
                 if (map[x, z] == 2)
                 {
                     GameObject goGround = GameObject.Instantiate(PrefabGround[0]);
-                    goGround.transform.position = new Vector3(x * Distance, 0, z * Distance) - offset;
+                    goGround.transform.position = new Vector3(x * Distance, -0.5f, z * Distance) - offset;
 
                 }
                 GameObject go = GameObject.Instantiate(PrefabGround[map[x, z]]);
                 go.transform.parent = Map;
-                go.transform.position = new Vector3(x * Distance, 0, z * Distance) - offset;
+                go.transform.position = new Vector3(x * Distance, -0.5f, z * Distance) - offset;
                 go.transform.localScale = Vector3.zero;
                 go.transform.DOScale(2, .16f);
                 yield return new WaitForSeconds(.01f);
@@ -119,21 +120,35 @@ public class MainGame : MonoBehaviour
     public void MoveLeft()
     {
         Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
+        //Vector3 pos = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
+        //Player.transform.DOComplete();
+        //Player.transform.DOMove(pos, timeToMove);
         coordPlayer.x--;
     }
     public void MoveRight()
     {
         Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
+        //Vector3 pos = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
+        //Player.transform.DOComplete();
+        //Player.transform.DOMove(pos, timeToMove);
         coordPlayer.x++;
     }
     public void MoveTop()
     {
         Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
+        //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
+        //Player.transform.DOKill();
+        //Player.transform.DOMove(pos, timeToMove);
         coordPlayer.z++;
     }
     public void MoveBot()
     {
         Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
+        //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
+        //Player.transform.DOKill();
+        //Player.transform.DOMove(pos, timeToMove);
         coordPlayer.z--;
     }
+
+
 }

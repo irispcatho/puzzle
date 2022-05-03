@@ -7,15 +7,35 @@ public class Bloc2 : MonoBehaviour
 {
     public Transform Target, Mouse;
     public bool isCatched, isCloseToTarget;
+
+    [Range(1, 4)]
+    public int TopBotLeftRight; 
+    public enum WhichSide { Top, Bot, Left, Right};
+    WhichSide actualSide;
+
     Vector3 InitialPos;
-    public Vector3 worldPosition;
+    Vector3 worldPosition;
     Plane plane = new Plane(Vector3.up, -2);
     public float Speed;
-    const float offsetToInit = .1f;
+    const float offsetToInit = .05f;
 
+
+    public static Bloc2 Instance;
+    private void Awake()
+    {
+        Instance = this;
+    }
     private void Start()
     {
         InitialPos = transform.position;
+        if (TopBotLeftRight == 1)
+            actualSide = WhichSide.Top;
+        if (TopBotLeftRight == 2)
+            actualSide = WhichSide.Bot;
+        if (TopBotLeftRight == 3)
+            actualSide = WhichSide.Left;
+        if (TopBotLeftRight == 4)
+            actualSide = WhichSide.Right;
     }
 
     private void OnMouseDown()
@@ -65,5 +85,14 @@ public class Bloc2 : MonoBehaviour
             }
         }
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Player") && !isCatched && isCloseToTarget)
+        {
+            print("alelrrrr " + actualSide);
+        }
+        //Enlever le triggeronstay pour le mouseUp avec le !isCatched && isCloseToTarget -> appeler une fonction qui va faire l'anim du bloc et appeler une fonction dans le maingame pour lancer le move
     }
 }
