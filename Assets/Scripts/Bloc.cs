@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,12 @@ public class Bloc : MonoBehaviour
 {
     public Transform Target;
     public Collider Player;
-    public bool isEnter, isPlaced;
+    public bool isEnter, isPlaced; //--> repasse en privée après les tests
     Vector3 mOffset;
     float mZCoord;
     Vector3 InitialPos;
     public float Speed = 5;
-    int test = 10;
+    const float offsetToInit = .1f;
 
     private void Start()
     {
@@ -39,8 +40,8 @@ public class Bloc : MonoBehaviour
         }
         else
             isPlaced = false;
-        print("init" + InitialPos);
-        print("trans" + transform.position);
+        //print("init" + InitialPos);
+        //print("trans" + transform.position);
     }
 
 
@@ -83,10 +84,12 @@ public class Bloc : MonoBehaviour
         if (!isPlaced)
         {
             Player.enabled = false;
-            transform.position = Vector3.MoveTowards(transform.position, InitialPos, Speed * Time.deltaTime); //--> Avance à une vitesse constante
-            //transform.position = Vector3.Lerp(transform.position, InitialPos, Time.deltaTime* Speed);
-            //if (transform.position.x.ToString().Length >= 5)
-              //  transform.position = new Vector3((Mathf.Round(transform.position.x * 100.0f) * 0.01f), (Mathf.Round(transform.position.y * 100.0f) * 0.01f), (Mathf.Round(transform.position.z * 100.0f) * 0.01f));
+            //transform.position = Vector3.MoveTowards(transform.position, InitialPos, Speed * Time.deltaTime); //--> Avance à une vitesse constante
+            transform.position = Vector3.Lerp(transform.position, InitialPos, Time.deltaTime* Speed);
+            if (Math.Abs(transform.position.x - InitialPos.x) <= offsetToInit && Math.Abs(transform.position.y - InitialPos.y) <= offsetToInit && Math.Abs(transform.position.z - InitialPos.z) <= offsetToInit) //--> Permet de bien replacer le cube à sa position initiale
+                transform.position = InitialPos;
+                //isPlaced = true;
+            //  transform.position = new Vector3((Mathf.Round(transform.position.x * 100.0f) * 0.01f), (Mathf.Round(transform.position.y * 100.0f) * 0.01f), (Mathf.Round(transform.position.z * 100.0f) * 0.01f));
 
             if (transform.position == InitialPos)
                 isPlaced = true;
@@ -95,5 +98,7 @@ public class Bloc : MonoBehaviour
         {
             Player.enabled = true;
         }
+
+        
     }
 }
