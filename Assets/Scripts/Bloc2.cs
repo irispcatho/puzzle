@@ -15,9 +15,10 @@ public class Bloc2 : MonoBehaviour
 
     Vector3 InitialPos;
     Vector3 worldPosition;
-    Plane plane = new Plane(Vector3.up, -2);
+    Plane plane = new Plane(Vector3.up, -1);
     public float Speed;
     const float offsetToInit = .05f;
+    const float distanceToSnap = 3f;
 
 
     public static Bloc2 Instance;
@@ -54,7 +55,7 @@ public class Bloc2 : MonoBehaviour
         {
             float Distance = Vector3.Distance(Target.position, Mouse.position);
             //print("Distance : " + Distance);
-            if (Distance < 2)
+            if (Distance < distanceToSnap)
                 isCloseToTarget = true;
             else
                 isCloseToTarget = false;
