@@ -8,6 +8,7 @@ TagManager:
   - Bot
   - Left
   - Right
+  - BlocMovement
   layers:
   - Default
   - TransparentFX

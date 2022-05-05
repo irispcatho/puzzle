@@ -69,86 +69,97 @@ public class MainGame : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            if (map[coordPlayer.x, coordPlayer.z + 1] == 1)
-            {
-                print("mur de vent");
-            }
-            else if (map[coordPlayer.x, coordPlayer.z + 1] == 2)
-            {
-
-            }
-            else
-            {
-                MoveTop();
-            }
+            MoveTop();
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
-            if (map[coordPlayer.x, coordPlayer.z - 1] == 1)
-            {
-                print("mur derrière");
-            }
-            else
-            {
-                MoveBot();
-            }
+            MoveBot();
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (map[coordPlayer.x - 1, coordPlayer.z] == 1)
-            {
-                print("mur a gauche");
-            }
-            else
-            {
-                MoveLeft();
-            }
+            MoveLeft();
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (map[coordPlayer.x + 1, coordPlayer.z] == 1)
-            {
-                print("mur a droite");
-            }
-            else
-            {
-                MoveRight();
-            }
+            MoveRight();
         }
     }
 
     public void MoveLeft()
     {
-        Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
+        if (map[coordPlayer.x - 1, coordPlayer.z] == 1)
+        {
+            print("mur a gauche");
+        }
+        else
+        {
+            Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
+            coordPlayer.x--;
+        }
         //Vector3 pos = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
         //Player.transform.DOComplete();
         //Player.transform.DOMove(pos, timeToMove);
-        coordPlayer.x--;
     }
     public void MoveRight()
     {
-        Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
+        if (map[coordPlayer.x + 1, coordPlayer.z] == 1)
+        {
+            print("mur a droite");
+        }
+        else
+        {
+            Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
+            coordPlayer.x++;
+        }
         //Vector3 pos = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
         //Player.transform.DOComplete();
         //Player.transform.DOMove(pos, timeToMove);
-        coordPlayer.x++;
     }
     public void MoveTop()
     {
-        Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
+        if (map[coordPlayer.x, coordPlayer.z + 1] == 1)
+        {
+            print("mur de vent");
+        }
+        else if (map[coordPlayer.x, coordPlayer.z + 1] == 2)
+        {
+
+        }
+        else
+        {
+            Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
+            coordPlayer.z++;
+        }
         //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
         //Player.transform.DOKill();
         //Player.transform.DOMove(pos, timeToMove);
-        coordPlayer.z++;
     }
     public void MoveBot()
     {
-        Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
+        if (map[coordPlayer.x, coordPlayer.z - 1] == 1)
+        {
+            print("mur derrière");
+        }
+        else
+        {
+            Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
+            coordPlayer.z--;
+        }
         //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
         //Player.transform.DOKill();
         //Player.transform.DOMove(pos, timeToMove);
-        coordPlayer.z--;
     }
 
+    public void Move(int WhichSide)
+    {
+        if (WhichSide == 1)
+            MoveTop();
+        else if (WhichSide == 2)
+            MoveBot();
+        else if (WhichSide == 3)
+            MoveLeft();
+        else
+            MoveRight();
 
+    }
 }

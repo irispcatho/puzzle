@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 1551713493775574254}
   - component: {fileID: 1551713493775574289}
   - component: {fileID: 1551713493775574288}
-  m_Layer: 0
+  - component: {fileID: 4756662031925450616}
+  m_Layer: 3
   m_Name: CubeBase
-  m_TagString: Top
+  m_TagString: BlocMovement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,8 +133,21 @@ MonoBehaviour:
   Mouse: {fileID: 0}
   isCatched: 0
   isCloseToTarget: 0
-  TopBotLeftRight: 1
+  isPlaced: 0
   Speed: 10
+--- !u!114 &4756662031925450616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1551713493775574291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08870c4ca4466e44485fad0693a0501c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TopBotLeftRight: 2
 --- !u!1 &1888995781080299725
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +160,7 @@ GameObject:
   - component: {fileID: 8161972586915806951}
   - component: {fileID: 353992831212486473}
   - component: {fileID: 7304747901948221257}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +255,7 @@ GameObject:
   - component: {fileID: 5256803308197370673}
   - component: {fileID: 280110521536474627}
   - component: {fileID: 5869784471046064812}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -336,7 +350,7 @@ GameObject:
   - component: {fileID: 3388484484092232669}
   - component: {fileID: 4038640456898701039}
   - component: {fileID: 1002419760565524093}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
