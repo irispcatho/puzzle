@@ -24,7 +24,7 @@ public class MoveBlock : MonoBehaviour
     private void Start()
     {
         InitialPos = transform.position;
-        print("Ini" + InitialPos);
+        //print("Ini" + InitialPos);
     }
 
     private void OnMouseDown()
@@ -39,24 +39,11 @@ public class MoveBlock : MonoBehaviour
         if (!isCatched && isCloseToTarget)
         {
             isPlaced = true;
-            StartCoroutine(MakeMoveBloc());
+            //StartCoroutine(MakeMoveBloc());
         }
     }
 
-    public IEnumerator MakeMoveBloc()
-    {
-        transform.DOScale(0, 1f);
-
-        yield return new WaitForSeconds(2f);
-
-        isPlaced = false;
-        isCloseToTarget = false;
-        GetComponent<SideOfBlock>().HasMovedPlayer = false;
-
-        transform.position = InitialPos;
-        transform.DOScale(new Vector3(1.5f, 0.0813f, 1.5f), 1f);
-    }
-
+    
 
     void Update()
     {
