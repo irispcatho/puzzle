@@ -8,6 +8,7 @@ public class MoveBlock : MonoBehaviour
 {
     public Transform Target, Mouse;
     public bool isCatched, isCloseToTarget, isPlaced;
+    public GameObject[] NbOfBloc;
 
     Vector3 InitialPos, worldPosition;
     Plane plane = new Plane(Vector3.up, -1);
@@ -39,7 +40,10 @@ public class MoveBlock : MonoBehaviour
         if (!isCatched && isCloseToTarget)
         {
             isPlaced = true;
-            //StartCoroutine(MakeMoveBloc());
+            for (int i = 0; i < NbOfBloc.Length; i++)
+            {
+                NbOfBloc[i].GetComponent<SideOfBlock>().isPlaced = true;
+            }
         }
     }
 

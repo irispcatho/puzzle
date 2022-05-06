@@ -1,31 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
-    bool isMoving;
-    private void OnTriggerEnter(Collider other)
+    const float timeToMovePlayer = 1f;
+    private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("BlocMovement"))
+        if (other.CompareTag("BlocMovement") && other.GetComponent<SideOfBlock>().isPlaced)
         {
-            print("salut");
-            if (!other.GetComponent<SideOfBlock>().HasMovedPlayer && !isMoving)
-            {
-                StartCoroutine(MovePlayer(other));
-                other.GetComponent<SideOfBlock>().HasMovedPlayer = true;
-                print("c qui" + other);
-                //other.GetComponent<Collider>().enabled = false;
-            }
+            print("salut on est en contact avec : " + other);
+            other.GetComponent<Collider>().enabled = false;
+            StartCoroutine(MovePlayer(other.GetComponent<SideOfBlock>().TopBotLeftRight));
+            other.GetComponent<SideOfBlock>().MakeDisappear();
         }
     }
 
-    public IEnumerator MovePlayer(Collider other)
+    public IEnumerator MovePlayer(int side)
     {
-        isMoving = true;
-        yield return new WaitForSeconds(1f);
-        MainGame.Instance.Move(other.GetComponent<SideOfBlock>().TopBotLeftRight);
-        other.GetComponent<MoveBlock>().StartMoveBlock();
-        isMoving = false;
+        yield return new WaitForSeconds(timeToMovePlayer);
+        MainGame.Instance.Move(side);
     }
 }
