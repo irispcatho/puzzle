@@ -8,11 +8,13 @@ public class MainGame : MonoBehaviour
     public GameObject[] PrefabGround;
     public GameObject Player;
     public Transform Map;
+    public Transform MapGlobal;
     public int Size;
     public float Distance = 1;
     int[,] map;
     Vector3Int coordPlayer;
     const float timeToMove = .1f;
+
 
     public static MainGame Instance;
     private void Awake()
@@ -62,11 +64,13 @@ public class MainGame : MonoBehaviour
                 yield return new WaitForSeconds(.01f);
             }
         }
+        
     }
 
 
     private void Update()
     {
+        //print(coordPlayer.z);
         if (Input.GetKeyDown(KeyCode.Z))
         {
             MoveTop();
@@ -82,6 +86,13 @@ public class MainGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             MoveRight();
+        }           
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            MapGlobal.Rotate(0, 90, 0, Space.Self);
+            coordPlayer.z = Size - coordPlayer.z - 1;
+            print(coordPlayer.z);
         }
     }
 
@@ -120,10 +131,6 @@ public class MainGame : MonoBehaviour
         if (map[coordPlayer.x, coordPlayer.z + 1] == 1)
         {
             print("mur de vent");
-        }
-        else if (map[coordPlayer.x, coordPlayer.z + 1] == 2)
-        {
-
         }
         else
         {
