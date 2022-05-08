@@ -13,7 +13,11 @@ public class MainGame : MonoBehaviour
     public float Distance = 1;
     int[,] map;
     Vector3Int coordPlayer;
+    Vector3Int initCoordPlayer;
     const float timeToMove = .1f;
+    public int rotate = 0;
+    private bool hadTurnOnce;
+
 
 
     public static MainGame Instance;
@@ -26,6 +30,7 @@ public class MainGame : MonoBehaviour
 
     IEnumerator Start()
     {
+        PrefabGround[0].GetComponent<IndexGround>().indexZ = 0;
         map = new int[Size, Size];
         //map[5, 3] = 2;
 
@@ -39,10 +44,11 @@ public class MainGame : MonoBehaviour
             for (int z = 0; z < Size; z++)
             {
                 if (x == 0 || x == Size - 1 || z == 0 || z == Size - 1)
-                    map[x, z] = 1;
+                {
+                    map[x, z] = 1;                    
+                }
             }
         }
-
 
         Vector3 offset = new Vector3((Size * Distance) / 2, 0, (Size * Distance) / 2);
 
@@ -54,7 +60,6 @@ public class MainGame : MonoBehaviour
                 {
                     GameObject goGround = GameObject.Instantiate(PrefabGround[0]);
                     goGround.transform.position = new Vector3(x * Distance, -0.5f, z * Distance) - offset;
-
                 }
                 GameObject go = GameObject.Instantiate(PrefabGround[map[x, z]]);
                 go.transform.parent = Map;
@@ -62,9 +67,10 @@ public class MainGame : MonoBehaviour
                 go.transform.localScale = Vector3.zero;
                 go.transform.DOScale(2, .16f);
                 yield return new WaitForSeconds(.01f);
+                //PrefabGround[0].GetComponent<IndexGround>().indexZ++;
+                //ground.Add(go);
             }
         }
-        
     }
 
 
@@ -86,13 +92,46 @@ public class MainGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.D))
         {
             MoveRight();
-        }           
+        }
 
         if (Input.GetKeyDown(KeyCode.R))
         {
+            rotate++;
+            if (rotate == 4)
+                rotate = 0;
             MapGlobal.Rotate(0, 90, 0, Space.Self);
-            coordPlayer.z = Size - coordPlayer.z - 1;
-            print(coordPlayer.z);
+
+            if (rotate == 0 && !hadTurnOnce)
+            {                 
+                coordPlayer.z = initCoordPlayer.z;
+                coordPlayer.x = initCoordPlayer.x;                
+                print(coordPlayer.z);
+                print(coordPlayer.x);
+            }
+
+            if (rotate > 0)
+            {
+                hadTurnOnce = true;
+                if(hadTurnOnce)
+                {
+                    initCoordPlayer.z = coordPlayer.z;
+                    initCoordPlayer.x = coordPlayer.x;
+                    coordPlayer.z = Size - coordPlayer.x - 1;
+                    coordPlayer.x = Size - (Size - initCoordPlayer.z);
+                    print(coordPlayer.z);
+                    print(coordPlayer.x);
+                }
+            }
+
+            if (rotate == 0 && hadTurnOnce)
+            {
+                initCoordPlayer.z = coordPlayer.z;
+                initCoordPlayer.x = coordPlayer.x;
+                coordPlayer.z = Size - coordPlayer.x - 1;
+                coordPlayer.x = Size - (Size - initCoordPlayer.z);
+                print(coordPlayer.z);
+                print(coordPlayer.x);
+            }
         }
     }
 
@@ -135,7 +174,7 @@ public class MainGame : MonoBehaviour
         else
         {
             Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
-            coordPlayer.z++;
+            coordPlayer.z++;            
         }
         //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
         //Player.transform.DOKill();
