@@ -94,7 +94,7 @@ public class MainGame : MonoBehaviour
             MoveRight();
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R)) // ROTATION
         {
             rotate++;
             if (rotate == 4)
@@ -109,91 +109,71 @@ public class MainGame : MonoBehaviour
                 print(coordPlayer.x);
             }
 
+            if (rotate == 0 && hadTurnOnce)
+            {
+                NewCoordRotation();
+            }
+
             if (rotate > 0)
             {
                 hadTurnOnce = true;
                 if(hadTurnOnce)
                 {
-                    initCoordPlayer.z = coordPlayer.z;
-                    initCoordPlayer.x = coordPlayer.x;
-                    coordPlayer.z = Size - coordPlayer.x - 1;
-                    coordPlayer.x = Size - (Size - initCoordPlayer.z);
-                    print(coordPlayer.z);
-                    print(coordPlayer.x);
+                    NewCoordRotation();
                 }
             }
 
-            if (rotate == 0 && hadTurnOnce)
-            {
-                initCoordPlayer.z = coordPlayer.z;
-                initCoordPlayer.x = coordPlayer.x;
-                coordPlayer.z = Size - coordPlayer.x - 1;
-                coordPlayer.x = Size - (Size - initCoordPlayer.z);
-                print(coordPlayer.z);
-                print(coordPlayer.x);
-            }
         }
     }
 
+    void NewCoordRotation()
+    {
+        initCoordPlayer.z = coordPlayer.z;
+        initCoordPlayer.x = coordPlayer.x;
+        coordPlayer.z = Size - coordPlayer.x - 1;
+        coordPlayer.x = Size - (Size - initCoordPlayer.z);
+        print(coordPlayer.z + " z");
+        print(coordPlayer.x + " x");
+    }
     public void MoveLeft()
     {
         if (map[coordPlayer.x - 1, coordPlayer.z] == 1)
-        {
             print("mur a gauche");
-        }
         else
         {
             Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
             coordPlayer.x--;
         }
-        //Vector3 pos = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
-        //Player.transform.DOComplete();
-        //Player.transform.DOMove(pos, timeToMove);
     }
     public void MoveRight()
     {
         if (map[coordPlayer.x + 1, coordPlayer.z] == 1)
-        {
             print("mur a droite");
-        }
         else
         {
             Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
             coordPlayer.x++;
         }
-        //Vector3 pos = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
-        //Player.transform.DOComplete();
-        //Player.transform.DOMove(pos, timeToMove);
     }
     public void MoveTop()
     {
         if (map[coordPlayer.x, coordPlayer.z + 1] == 1)
-        {
             print("mur de vent");
-        }
         else
         {
             Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
             coordPlayer.z++;            
         }
-        //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
-        //Player.transform.DOKill();
-        //Player.transform.DOMove(pos, timeToMove);
     }
     public void MoveBot()
     {
         if (map[coordPlayer.x, coordPlayer.z - 1] == 1)
-        {
             print("mur derrière");
-        }
         else
         {
             Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
             coordPlayer.z--;
         }
-        //Vector3 pos = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
-        //Player.transform.DOKill();
-        //Player.transform.DOMove(pos, timeToMove);
     }
 
     public void Move(int WhichSide)
