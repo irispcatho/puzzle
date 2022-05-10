@@ -44,7 +44,7 @@ public class MainGame : MonoBehaviour
             {
                 if (x == 0 || x == Size - 1 || z == 0 || z == Size - 1)
                 {
-                    map[x, z] = 1;
+                    map[x, z] = 0;
                 }
             }
         }
