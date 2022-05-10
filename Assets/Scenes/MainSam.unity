@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -778,7 +778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574291, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_Name
-      value: CubeBaseLeft
+      value: PlaqueBaseLeft
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574291, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_Layer
@@ -836,7 +836,7 @@ GameObject:
   - component: {fileID: 616896255}
   - component: {fileID: 616896260}
   m_Layer: 3
-  m_Name: CubeBaseTop
+  m_Name: PlaqueBaseTop
   m_TagString: BlocMovement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1152,7 @@ GameObject:
   - component: {fileID: 730592261}
   - component: {fileID: 730592260}
   m_Layer: 3
-  m_Name: CubeBaseTop (2)
+  m_Name: PlaqueBaseTop (2)
   m_TagString: BlocMovement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1823,7 +1823,7 @@ PrefabInstance:
       objectReference: {fileID: 1445727386}
     - target: {fileID: 1551713493775574291, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_Name
-      value: CubeBaseBot
+      value: PlaqueBaseBot
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
@@ -2362,7 +2362,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574291, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_Name
-      value: CubeBaseRight
+      value: PlaqueBaseRight
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574291, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_Layer
@@ -2420,7 +2420,7 @@ GameObject:
   - component: {fileID: 1815447056}
   - component: {fileID: 1815447055}
   m_Layer: 3
-  m_Name: CubeBaseTop (1)
+  m_Name: PlaqueBaseTop (1)
   m_TagString: BlocMovement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3151,6 +3151,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3bc12c5bffbc6479639c61b2fddb33, type: 3}
+--- !u!1001 &3846565484306418943
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2104944851789465213, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: Mouse
+      value: 
+      objectReference: {fileID: 1583438584}
+    - target: {fileID: 2104944851789465213, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: Target
+      value: 
+      objectReference: {fileID: 965979699}
+    - target: {fileID: 2104944851789465214, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_Name
+      value: PlaqueRotateBase
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.1199999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -12.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104944851789465472, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5385603570330481685, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
+      propertyPath: TopBotLeftRight
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ec18135a3a2ceb841b7210c006646a7f, type: 3}
 --- !u!33 &4219480998705164339
 MeshFilter:
   m_ObjectHideFlags: 0

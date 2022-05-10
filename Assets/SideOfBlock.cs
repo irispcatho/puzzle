@@ -10,6 +10,7 @@ public class SideOfBlock : MonoBehaviour
     public bool isPlaced;
     bool isTouchingGround;
     public float timeToDispawn;
+    Vector3 posWhenItsPlaced;
     const float timeToScaleDownBloc = 1f;
 
     public void MakeDisappear()
@@ -34,26 +35,20 @@ public class SideOfBlock : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Ground"))
-        {
-            //print("du sol du sol !!");
             isTouchingGround = true;
-        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Ground"))
-        {
-            //print("ça quitte le sol !!");
             isTouchingGround = false;
-            //StartCoroutine(DiseapperOrNot());
-        }
     }
 
     IEnumerator DiseapperOrNot()
     {
         if (isPlaced)
         {
+            posWhenItsPlaced = transform.position;
             yield return new WaitForSeconds(.5f);
             MakeDisappear();
         }

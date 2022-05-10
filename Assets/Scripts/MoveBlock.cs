@@ -25,7 +25,6 @@ public class MoveBlock : MonoBehaviour
     private void Start()
     {
         InitialPos = transform.position;
-        //print("Ini" + InitialPos);
     }
 
     private void OnMouseDown()
@@ -54,7 +53,6 @@ public class MoveBlock : MonoBehaviour
         if (isCatched)
         {
             float Distance = Vector3.Distance(Target.position, Mouse.position);
-            //print("Distance : " + Distance);
             if (Distance < distanceToSnap)
                 isCloseToTarget = true;
             else
@@ -63,9 +61,7 @@ public class MoveBlock : MonoBehaviour
 
 
         if (isCloseToTarget && !isPlaced)
-        {
             transform.position = Target.position;
-        }
         else
         {
             if (isCatched)
@@ -88,7 +84,5 @@ public class MoveBlock : MonoBehaviour
                 }
             }
         }
-
     }
-
 }

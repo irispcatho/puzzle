@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1551713493775574288}
   - component: {fileID: 4756662031925450616}
   m_Layer: 3
-  m_Name: CubeBase
+  m_Name: PlaqueBase
   m_TagString: BlocMovement
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

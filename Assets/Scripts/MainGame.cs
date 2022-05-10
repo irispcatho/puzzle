@@ -14,6 +14,7 @@ public class MainGame : MonoBehaviour
     Vector3Int coordPlayer, initCoordPlayer;
     public int rotate = 0;
     private bool hadTurnOnce;
+    int rotaY;
 
 
 
@@ -27,12 +28,12 @@ public class MainGame : MonoBehaviour
 
     IEnumerator Start()
     {
-        PrefabGround[0].GetComponent<IndexGround>().indexZ = 0;
-        map = new int[Size, Size];
+        //PrefabGround[0].GetComponent<IndexGround>().indexZ = 0;
+        //map = new int[Size, Size];
         //map[5, 3] = 3;
 
-        coordPlayer = new Vector3Int(1, 0, 1);
         yield return new WaitForSeconds(.01f);
+        //coordPlayer = new Vector3Int(1, 0, 1);
         //Player.transform.position = new Vector3((coordPlayer.x - Size / 2) * Distance, 0, (coordPlayer.z - Size / 2) * Distance);
         Player.transform.position = SpawnPlayer.position;
 
@@ -75,70 +76,69 @@ public class MainGame : MonoBehaviour
     {
         //print(coordPlayer.z);
         if (Input.GetKeyDown(KeyCode.Z))
-        {
             MoveTop();
-        }
         if (Input.GetKeyDown(KeyCode.S))
-        {
             MoveBot();
-        }
         if (Input.GetKeyDown(KeyCode.Q))
-        {
             MoveLeft();
-        }
         if (Input.GetKeyDown(KeyCode.D))
-        {
             MoveRight();
-        }
 
-        if (Input.GetKeyDown(KeyCode.L)) // ROTATION
+        if (Input.GetKeyDown(KeyCode.L)) // PRINT LES COORDS
         {
             print(coordPlayer.z + " z");
             print(coordPlayer.x + " x");
         }
 
         if (Input.GetKeyDown(KeyCode.R)) // ROTATION
-        {
-            rotate++;
-            if (rotate == 4)
-                rotate = 0;
-            MapGlobal.Rotate(0, 90, 0, Space.Self);
-            DetectionObjs[4].transform.Rotate(0, -90, 0, Space.Self);
+           RotateMap();
 
-            if (rotate == 0 && !hadTurnOnce)
-            {
-                coordPlayer.z = initCoordPlayer.z;
-                coordPlayer.x = initCoordPlayer.x;
-                print(coordPlayer.z);
-                print(coordPlayer.x);
-            }
+            //rotate++;
+            //if (rotate == 4)
+            //    rotate = 0;
+            //if (rotate == 0 && !hadTurnOnce)
+            //{
+            //    coordPlayer.z = initCoordPlayer.z;
+            //    coordPlayer.x = initCoordPlayer.x;
+            //    print(coordPlayer.z);
+            //    print(coordPlayer.x);
+            //}
 
-            if (rotate == 0 && hadTurnOnce)
-            {
-                NewCoordRotation();
-            }
+            //if (rotate == 0 && hadTurnOnce)
+            //{
+            //    NewCoordRotation();
+            //}
 
-            if (rotate > 0)
-            {
-                hadTurnOnce = true;
-                if (hadTurnOnce)
-                {
-                    NewCoordRotation();
-                }
-            }
-        }
+            //if (rotate > 0)
+            //{
+            //    hadTurnOnce = true;
+            //    if (hadTurnOnce)
+            //    {
+            //        NewCoordRotation();
+            //    }
+            //}
     }
 
-    void NewCoordRotation()
+    public void RotateMap()
     {
-        initCoordPlayer.z = coordPlayer.z;
-        initCoordPlayer.x = coordPlayer.x;
-        coordPlayer.z = Size - coordPlayer.x - 1;
-        coordPlayer.x = Size - (Size - initCoordPlayer.z);
-
-        //print(coordPlayer.z + " z");
-        //print(coordPlayer.x + " x");
+        rotaY += 90;
+        print("rotaY " + rotaY);
+        MapGlobal.transform.DORotate(new Vector3(0, rotaY, 0), 1f);
+        DetectionObjs[4].transform.Rotate(0, -90, 0, Space.Self);
+        //MapGlobal.Rotate(0, 90, 0, Space.Self);
     }
+
+    //void NewCoordRotation()
+    //{
+    //    initCoordPlayer.z = coordPlayer.z;
+    //    initCoordPlayer.x = coordPlayer.x;
+    //    coordPlayer.z = Size - coordPlayer.x - 1;
+    //    coordPlayer.x = Size - (Size - initCoordPlayer.z);
+
+    //    //print(coordPlayer.z + " z");
+    //    //print(coordPlayer.x + " x");
+    //}
+
     public void MoveLeft()
     {
         //if (map[coordPlayer.x - 1, coordPlayer.z] != 0)
@@ -195,6 +195,5 @@ public class MainGame : MonoBehaviour
             MoveLeft();
         else
             MoveRight();
-
     }
 }

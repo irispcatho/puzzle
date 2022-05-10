@@ -15,6 +15,13 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(MovePlayer(other.GetComponent<SideOfBlock>().TopBotLeftRight));
             other.GetComponent<SideOfBlock>().MakeDisappear();
         }
+        else if (other.CompareTag("BlocRotate") && other.GetComponent<SideOfBlock>().isPlaced)
+        {
+            print("salut on est en contact rotate avec : " + other);
+            other.GetComponent<Collider>().enabled = false;
+            other.GetComponent<SideOfBlock>().MakeDisappear();
+            MainGame.Instance.RotateMap();
+        }
     }
 
     public IEnumerator MovePlayer(int side)
