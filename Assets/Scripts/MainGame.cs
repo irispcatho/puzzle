@@ -5,15 +5,14 @@ using DG.Tweening;
 
 public class MainGame : MonoBehaviour
 {
-    public GameObject[] PrefabGround;
+    public GameObject[] PrefabGround, DetectionObjs;
     public GameObject Player;
     public Transform Map;
     public Transform MapGlobal;
     public int Size;
     public float Distance = 1;
     int[,] map;
-    Vector3Int coordPlayer;
-    Vector3Int initCoordPlayer;
+    Vector3Int coordPlayer, initCoordPlayer;
     const float timeToMove = .1f;
     public int rotate = 0;
     private bool hadTurnOnce;
@@ -32,7 +31,7 @@ public class MainGame : MonoBehaviour
     {
         PrefabGround[0].GetComponent<IndexGround>().indexZ = 0;
         map = new int[Size, Size];
-        //map[5, 3] = 2;
+        map[5, 3] = 3;
 
         coordPlayer = new Vector3Int(1, 0, 1);
 
@@ -45,7 +44,7 @@ public class MainGame : MonoBehaviour
             {
                 if (x == 0 || x == Size - 1 || z == 0 || z == Size - 1)
                 {
-                    map[x, z] = 1;                    
+                    map[x, z] = 1;
                 }
             }
         }
@@ -94,17 +93,24 @@ public class MainGame : MonoBehaviour
             MoveRight();
         }
 
+        if (Input.GetKeyDown(KeyCode.L)) // ROTATION
+        {
+            print(coordPlayer.z + " z");
+            print(coordPlayer.x + " x");
+        }
+
         if (Input.GetKeyDown(KeyCode.R)) // ROTATION
         {
             rotate++;
             if (rotate == 4)
                 rotate = 0;
             MapGlobal.Rotate(0, 90, 0, Space.Self);
+            DetectionObjs[4].transform.Rotate(0, -90, 0, Space.Self);
 
             if (rotate == 0 && !hadTurnOnce)
-            {                 
+            {
                 coordPlayer.z = initCoordPlayer.z;
-                coordPlayer.x = initCoordPlayer.x;                
+                coordPlayer.x = initCoordPlayer.x;
                 print(coordPlayer.z);
                 print(coordPlayer.x);
             }
@@ -117,12 +123,11 @@ public class MainGame : MonoBehaviour
             if (rotate > 0)
             {
                 hadTurnOnce = true;
-                if(hadTurnOnce)
+                if (hadTurnOnce)
                 {
                     NewCoordRotation();
                 }
             }
-
         }
     }
 
@@ -132,12 +137,14 @@ public class MainGame : MonoBehaviour
         initCoordPlayer.x = coordPlayer.x;
         coordPlayer.z = Size - coordPlayer.x - 1;
         coordPlayer.x = Size - (Size - initCoordPlayer.z);
-        print(coordPlayer.z + " z");
-        print(coordPlayer.x + " x");
+
+        //print(coordPlayer.z + " z");
+        //print(coordPlayer.x + " x");
     }
     public void MoveLeft()
     {
-        if (map[coordPlayer.x - 1, coordPlayer.z] == 1)
+        //if (map[coordPlayer.x - 1, coordPlayer.z] != 0)
+        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingGround == false)
             print("mur a gauche");
         else
         {
@@ -147,7 +154,8 @@ public class MainGame : MonoBehaviour
     }
     public void MoveRight()
     {
-        if (map[coordPlayer.x + 1, coordPlayer.z] == 1)
+        //if (map[coordPlayer.x + 1, coordPlayer.z] != 0)
+        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == false)
             print("mur a droite");
         else
         {
@@ -157,17 +165,20 @@ public class MainGame : MonoBehaviour
     }
     public void MoveTop()
     {
-        if (map[coordPlayer.x, coordPlayer.z + 1] == 1)
+        //if (map[coordPlayer.x, coordPlayer.z + 1] != 0)
+        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingGround == false)
             print("mur de vent");
         else
         {
             Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
-            coordPlayer.z++;            
+            coordPlayer.z++;
         }
+
     }
     public void MoveBot()
     {
-        if (map[coordPlayer.x, coordPlayer.z - 1] == 1)
+        //if (map[coordPlayer.x, coordPlayer.z - 1] != 0)
+        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingGround == false)
             print("mur derrière");
         else
         {

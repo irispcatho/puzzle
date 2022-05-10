@@ -9,6 +9,7 @@ TagManager:
   - Left
   - Right
   - BlocMovement
+  - Ground
   layers:
   - Default
   - TransparentFX
