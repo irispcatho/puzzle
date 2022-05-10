@@ -7,13 +7,11 @@ public class MainGame : MonoBehaviour
 {
     public GameObject[] PrefabGround, DetectionObjs;
     public GameObject Player;
-    public Transform Map;
-    public Transform MapGlobal;
+    public Transform Map, MapGlobal, SpawnPlayer;
     public int Size;
     public float Distance = 1;
     int[,] map;
     Vector3Int coordPlayer, initCoordPlayer;
-    const float timeToMove = .1f;
     public int rotate = 0;
     private bool hadTurnOnce;
 
@@ -31,14 +29,14 @@ public class MainGame : MonoBehaviour
     {
         PrefabGround[0].GetComponent<IndexGround>().indexZ = 0;
         map = new int[Size, Size];
-        map[5, 3] = 3;
+        //map[5, 3] = 3;
 
         coordPlayer = new Vector3Int(1, 0, 1);
+        yield return new WaitForSeconds(.01f);
+        //Player.transform.position = new Vector3((coordPlayer.x - Size / 2) * Distance, 0, (coordPlayer.z - Size / 2) * Distance);
+        Player.transform.position = SpawnPlayer.position;
 
-        Player.transform.position = new Vector3((coordPlayer.x - Size / 2) * Distance, 0, (coordPlayer.z - Size / 2) * Distance);
-        //mapPlayer[5,5] = 
-
-        for (int x = 0; x < Size; x++)
+        /*for (int x = 0; x < Size; x++)
         {
             for (int z = 0; z < Size; z++)
             {
@@ -69,7 +67,7 @@ public class MainGame : MonoBehaviour
                 //PrefabGround[0].GetComponent<IndexGround>().indexZ++;
                 //ground.Add(go);
             }
-        }
+        }*/
     }
 
 
