@@ -17,7 +17,6 @@ public class MainGame : MonoBehaviour
     int rotaY;
 
 
-
     public static MainGame Instance;
     private void Awake()
     {
@@ -93,30 +92,35 @@ public class MainGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R)) // ROTATION
            RotateMap();
 
-            //rotate++;
-            //if (rotate == 4)
-            //    rotate = 0;
-            //if (rotate == 0 && !hadTurnOnce)
-            //{
-            //    coordPlayer.z = initCoordPlayer.z;
-            //    coordPlayer.x = initCoordPlayer.x;
-            //    print(coordPlayer.z);
-            //    print(coordPlayer.x);
-            //}
+        if (Player.GetComponent<PlayerMovement>().isOnBumperCar == true)
+        {
+            Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
+            StartCoroutine(BumperRight());
+        }
+        //rotate++;
+        //if (rotate == 4)
+        //    rotate = 0;
+        //if (rotate == 0 && !hadTurnOnce)
+        //{
+        //    coordPlayer.z = initCoordPlayer.z;
+        //    coordPlayer.x = initCoordPlayer.x;
+        //    print(coordPlayer.z);
+        //    print(coordPlayer.x);
+        //}
 
-            //if (rotate == 0 && hadTurnOnce)
-            //{
-            //    NewCoordRotation();
-            //}
+        //if (rotate == 0 && hadTurnOnce)
+        //{
+        //    NewCoordRotation();
+        //}
 
-            //if (rotate > 0)
-            //{
-            //    hadTurnOnce = true;
-            //    if (hadTurnOnce)
-            //    {
-            //        NewCoordRotation();
-            //    }
-            //}
+        //if (rotate > 0)
+        //{
+        //    hadTurnOnce = true;
+        //    if (hadTurnOnce)
+        //    {
+        //        NewCoordRotation();
+        //    }
+        //}
     }
 
     public void RotateMap()
@@ -149,6 +153,8 @@ public class MainGame : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
             coordPlayer.x--;
         }
+        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+            RotateMap();
     }
     public void MoveRight()
     {
@@ -160,6 +166,9 @@ public class MainGame : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
             coordPlayer.x++;
         }
+
+        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+            RotateMap();
     }
     public void MoveTop()
     {
@@ -171,7 +180,8 @@ public class MainGame : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
             coordPlayer.z++;
         }
-
+        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+            RotateMap();
     }
     public void MoveBot()
     {
@@ -183,6 +193,8 @@ public class MainGame : MonoBehaviour
             Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
             coordPlayer.z--;
         }
+        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+            RotateMap();        
     }
 
     public void Move(int WhichSide)
@@ -195,5 +207,11 @@ public class MainGame : MonoBehaviour
             MoveLeft();
         else
             MoveRight();
+    }
+
+    IEnumerator BumperRight()
+    {
+        yield return new WaitForSeconds(0.5f);
+        MoveRight();
     }
 }

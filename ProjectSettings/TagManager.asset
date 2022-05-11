@@ -11,6 +11,9 @@ TagManager:
   - BlocMovement
   - Ground
   - BlocRotate
+  - Fence
+  - Ferris
+  - BumperCar
   layers:
   - Default
   - TransparentFX

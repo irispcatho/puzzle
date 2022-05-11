@@ -6,29 +6,29 @@ public class DetectionGround : MonoBehaviour
 {
     public bool isTouchingGround;
     public bool isTouchingFence;
+    public bool isTouchingFerrisWheel;
+    public bool isTouchingBumperCar;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Ground"))
-        {
-            //print("du sol du sol !!");
             isTouchingGround = true;
-        }
         if(other.CompareTag("Fence"))
-        {
             isTouchingFence = true;
-        }
+        if (other.CompareTag("Ferris"))
+            isTouchingFerrisWheel = true;
+        if (other.CompareTag("BumperCar"))
+            isTouchingBumperCar = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Ground") || other.CompareTag("Fence"))
-        {
-            //print("ça quitte le sol !!");
+        if (other.CompareTag("Ground"))
             isTouchingGround = false;
-        }
         if (other.CompareTag("Fence"))
-        {
             isTouchingFence = false;
-        }
+        if (other.CompareTag("Ferris"))
+            isTouchingFerrisWheel = false;
+        if (other.CompareTag("BumperCar"))
+            isTouchingBumperCar = false;
     }
 }

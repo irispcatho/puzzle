@@ -6,6 +6,7 @@ using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     const float timeToMovePlayer = 1f;
+    public bool isOnBumperCar;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("BlocMovement") && other.GetComponent<SideOfBlock>().isPlaced)
@@ -23,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
             other.GetComponent<SideOfBlock>().StuckToPlayer();
             MainGame.Instance.RotateMap();
         }
+        if (other.CompareTag("BumperCar"))
+            isOnBumperCar = true;
     }
 
     public IEnumerator MovePlayer(int side)
