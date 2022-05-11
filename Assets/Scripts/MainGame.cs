@@ -142,7 +142,7 @@ public class MainGame : MonoBehaviour
     public void MoveLeft()
     {
         //if (map[coordPlayer.x - 1, coordPlayer.z] != 0)
-        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingGround == false)
+        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[2].GetComponent<DetectionGround>().isTouchingFence == true)
             print("mur a gauche");
         else
         {
@@ -153,7 +153,7 @@ public class MainGame : MonoBehaviour
     public void MoveRight()
     {
         //if (map[coordPlayer.x + 1, coordPlayer.z] != 0)
-        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == false)
+        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[3].GetComponent<DetectionGround>().isTouchingFence == true)
             print("mur a droite");
         else
         {
@@ -164,7 +164,7 @@ public class MainGame : MonoBehaviour
     public void MoveTop()
     {
         //if (map[coordPlayer.x, coordPlayer.z + 1] != 0)
-        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingGround == false)
+        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[0].GetComponent<DetectionGround>().isTouchingFence == true)
             print("mur de vent");
         else
         {
@@ -176,7 +176,7 @@ public class MainGame : MonoBehaviour
     public void MoveBot()
     {
         //if (map[coordPlayer.x, coordPlayer.z - 1] != 0)
-        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingGround == false)
+        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFence == true)
             print("mur derrière");
         else
         {
