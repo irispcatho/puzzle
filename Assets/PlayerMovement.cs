@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
             print("salut on est en contact rotate avec : " + other);
             other.GetComponent<Collider>().enabled = false;
             other.GetComponent<SideOfBlock>().MakeDisappear();
+            other.GetComponent<SideOfBlock>().StuckToPlayer();
             MainGame.Instance.RotateMap();
         }
     }
