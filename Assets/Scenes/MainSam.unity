@@ -2017,6 +2017,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlaqueBaseBot
       objectReference: {fileID: 0}
+    - target: {fileID: 4756662031925450616, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: timeToDispawn
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
 --- !u!1 &1139855495
@@ -2028,6 +2032,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1139855496}
+  - component: {fileID: 1139855497}
   m_Layer: 3
   m_Name: Map
   m_TagString: Untagged
@@ -2043,7 +2048,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139855495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0, z: -1}
+  m_LocalPosition: {x: -1, y: -20.7, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1404366318}
@@ -2054,6 +2059,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1139855497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139855495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b636f548f17d3e4583c1d2d74cd8ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1300469278
 GameObject:
   m_ObjectHideFlags: 0
@@ -3015,7 +3032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966881082}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.01, y: 1.13, z: -1.06}
+  m_LocalPosition: {x: 2.99, y: 1.13, z: -1.02}
   m_LocalScale: {x: 0.9898582, y: 0.16667, z: 1}
   m_Children: []
   m_Father: {fileID: 1139855496}
@@ -3384,14 +3401,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1139855496}
     m_Modifications:
-    - target: {fileID: 3490024767785366820, guid: 8c3bc12c5bffbc6479639c61b2fddb33, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.28
-      objectReference: {fileID: 0}
-    - target: {fileID: 3490024767785366821, guid: 8c3bc12c5bffbc6479639c61b2fddb33, type: 3}
-      propertyPath: m_Icon
-      value: 
-      objectReference: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 3490024768881718451, guid: 8c3bc12c5bffbc6479639c61b2fddb33, type: 3}
       propertyPath: m_RootOrder
       value: 1
