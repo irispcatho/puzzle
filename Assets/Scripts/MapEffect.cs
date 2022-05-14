@@ -5,10 +5,14 @@ using DG.Tweening;
 
 public class MapEffect : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject player;
     void Start()
     {
-        gameObject.transform.DOMove(new Vector3(-1, 0, -1), 2f, false);
+        gameObject.transform.DOMove(new Vector3(gameObject.transform.position.x, 0, gameObject.transform.position.z), 2f, false).OnComplete(PlayerPos);
     }
 
+    private void PlayerPos()
+    {
+        player.transform.position = new Vector3(player.transform.position.x, 0, player.transform.position.z);
+    }
 }
