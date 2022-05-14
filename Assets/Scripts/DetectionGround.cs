@@ -16,8 +16,6 @@ public class DetectionGround : MonoBehaviour
             isTouchingFence = true;
         if (other.CompareTag("Ferris"))
             isTouchingFerrisWheel = true;
-        if (other.CompareTag("BumperCar"))
-            isTouchingBumperCar = true;
     }
 
     private void OnTriggerExit(Collider other)
@@ -28,7 +26,5 @@ public class DetectionGround : MonoBehaviour
             isTouchingFence = false;
         if (other.CompareTag("Ferris"))
             isTouchingFerrisWheel = false;
-        if (other.CompareTag("BumperCar"))
-            isTouchingBumperCar = false;
     }
 }

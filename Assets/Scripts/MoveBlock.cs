@@ -44,9 +44,7 @@ public class MoveBlock : MonoBehaviour
                 NbOfBloc[i].GetComponent<SideOfBlock>().isPlaced = true;
             }
         }
-    }
-
-    
+    }    
 
     void Update()
     {
