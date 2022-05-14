@@ -5,15 +5,12 @@ using UnityEngine;
 public class DetectionGround : MonoBehaviour
 {
     public bool isTouchingGround;
-    public bool isTouchingFence;
     public bool isTouchingFerrisWheel;
     public bool isTouchingBumperCar;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Ground"))
             isTouchingGround = true;
-        if(other.CompareTag("Fence"))
-            isTouchingFence = true;
         if (other.CompareTag("Ferris"))
             isTouchingFerrisWheel = true;
     }
@@ -22,8 +19,6 @@ public class DetectionGround : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
             isTouchingGround = false;
-        if (other.CompareTag("Fence"))
-            isTouchingFence = false;
         if (other.CompareTag("Ferris"))
             isTouchingFerrisWheel = false;
     }

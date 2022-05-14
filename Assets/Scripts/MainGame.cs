@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class MainGame : MonoBehaviour
 {
-    public GameObject[] PrefabGround, DetectionObjs;
+    public GameObject[] PrefabGround, DetectionObjs, DetectionFence;
     public GameObject Player;
     public Transform Map, MapGlobal, SpawnPlayer;
     public int Size;
@@ -104,11 +104,12 @@ public class MainGame : MonoBehaviour
         rotaY += 90;
         MapGlobal.transform.DORotate(new Vector3(0, rotaY, 0), 1f);
         DetectionObjs[4].transform.Rotate(0, -90, 0, Space.Self);
+        DetectionFence[4].transform.Rotate(0, -90, 0, Space.Self);
     }
 
     public void MoveLeft()
     {
-        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[2].GetComponent<DetectionGround>().isTouchingFence == true)
+        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingGround == false || DetectionFence[2].GetComponent<DetectionFence>().isTouchingFence == true)
             print("mur a gauche");
         else
         {
@@ -120,7 +121,7 @@ public class MainGame : MonoBehaviour
     }
     public void MoveRight()
     {
-        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[3].GetComponent<DetectionGround>().isTouchingFence == true)
+        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == false || DetectionFence[3].GetComponent<DetectionFence>().isTouchingFence == true)
             print("mur a droite");
         else
         {
@@ -133,7 +134,7 @@ public class MainGame : MonoBehaviour
     }
     public void MoveTop()
     {
-        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[0].GetComponent<DetectionGround>().isTouchingFence == true)
+        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingGround == false || DetectionFence[0].GetComponent<DetectionFence>().isTouchingFence == true)
             print("mur de vent");
         else
         {
@@ -145,7 +146,7 @@ public class MainGame : MonoBehaviour
     }
     public void MoveBot()
     {
-        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingGround == false || DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFence == true)
+        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingGround == false || DetectionFence[1].GetComponent<DetectionFence>().isTouchingFence == true)
             print("mur derrière");
         else
         {
