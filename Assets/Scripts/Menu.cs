@@ -12,11 +12,15 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        Fade.DOFade(0, 1f).OnComplete(SetActiveFade);
+        Fade.DOFade(0, 1f).OnComplete(SetActiveFadeFalse);
     }
-    private void SetActiveFade()
+    private void SetActiveFadeFalse()
     {
         FadeObj.SetActive(false);
+    }
+    private void SetActiveFadeTrue()
+    {
+        FadeObj.SetActive(true);
     }
     public void OnClickPlay()
     {
@@ -51,5 +55,15 @@ public class Menu : MonoBehaviour
     public void OnClickQuit()
     {
         Application.Quit();
+    }
+
+    public void Restart()
+    {
+        SetActiveFadeTrue();
+        Fade.DOFade(1, 1f).OnComplete(FadeCompleteRestart);
+    }
+    private void FadeCompleteRestart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
