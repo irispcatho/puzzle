@@ -14,6 +14,10 @@ public class MainGame : MonoBehaviour
     public int rotate = 0;
     int rotaY;
     private bool hasMoved;
+    private bool canMove = true;
+    public float SpeedMovement = 0.5f;
+
+
 
     public static MainGame Instance;
     private void Awake()
@@ -113,8 +117,13 @@ public class MainGame : MonoBehaviour
             print("mur a gauche");
         else
         {
-            Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
-            coordPlayer.x--;
+            if(canMove)
+            {
+                canMove = false;
+                //Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
+                Player.transform.DOMove(new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z), SpeedMovement, false).OnComplete(CanMove);
+                coordPlayer.x--;
+            }
         }
         if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
             RotateMap();
@@ -125,8 +134,13 @@ public class MainGame : MonoBehaviour
             print("mur a droite");
         else
         {
-            Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
-            coordPlayer.x++;
+            if (canMove)
+            {
+                canMove = false;
+                //Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
+                Player.transform.DOMove(new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z), SpeedMovement, false).OnComplete(CanMove);
+                coordPlayer.x++;
+            }
         }
 
         if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
@@ -138,8 +152,13 @@ public class MainGame : MonoBehaviour
             print("mur de vent");
         else
         {
-            Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
-            coordPlayer.z++;
+            if (canMove)
+            {
+                canMove = false;
+                //Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
+                Player.transform.DOMove(new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance), SpeedMovement, false).OnComplete(CanMove);
+                coordPlayer.z++;
+            }
         }
         if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
             RotateMap();
@@ -150,8 +169,13 @@ public class MainGame : MonoBehaviour
             print("mur derrière");
         else
         {
-            Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
-            coordPlayer.z--;
+            if (canMove)
+            {
+                canMove = false;
+                //Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
+                Player.transform.DOMove(new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance), SpeedMovement, false).OnComplete(CanMove);
+                coordPlayer.z--;
+            }
         }
         if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
             RotateMap();        
@@ -177,5 +201,10 @@ public class MainGame : MonoBehaviour
             MoveRight();
             hasMoved = true;
         }
+    }
+
+    private void CanMove()
+    {
+        canMove = true;
     }
 }
