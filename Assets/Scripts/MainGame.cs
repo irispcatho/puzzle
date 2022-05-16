@@ -105,6 +105,9 @@ public class MainGame : MonoBehaviour
 
     public void RotateMap()
     {
+        rotate++;
+        if (rotate >= 4)
+            rotate = 0;
         rotaY += 90;
         MapGlobal.transform.DORotate(new Vector3(0, rotaY, 0), 1f);
         DetectionObjs[4].transform.Rotate(0, -90, 0, Space.Self);
@@ -198,7 +201,15 @@ public class MainGame : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if(!hasMoved)
         {
-            MoveRight();
+            if (rotate == 0)
+                MoveRight();
+            else if (rotate == 1)
+                MoveBot();
+            else if (rotate == 2)
+                MoveLeft();
+            else if (rotate == 3)
+                MoveTop();
+
             hasMoved = true;
         }
     }
