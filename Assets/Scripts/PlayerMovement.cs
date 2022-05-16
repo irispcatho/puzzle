@@ -31,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
             if(!mustRotate)
                 isOnBumperCar = true;
         }
+
+        if (other.CompareTag("End"))
+            print("fin du niveau");
     }
 
     private void OnTriggerExit(Collider other)

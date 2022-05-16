@@ -14,6 +14,7 @@ TagManager:
   - Fence
   - Ferris
   - BumperCar
+  - End
   layers:
   - Default
   - TransparentFX
