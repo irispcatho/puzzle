@@ -105,6 +105,12 @@ public class MainGame : MonoBehaviour
 
     public void RotateMap()
     {
+        StartCoroutine(waitToRotateMap());
+    }
+
+    IEnumerator waitToRotateMap()
+    {
+        yield return new WaitForSeconds(.5f);
         rotate++;
         if (rotate >= 4)
             rotate = 0;
