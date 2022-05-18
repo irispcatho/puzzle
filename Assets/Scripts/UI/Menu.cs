@@ -10,18 +10,33 @@ public class Menu : MonoBehaviour
     public Image Fade;
     public GameObject FadeObj;
 
+    public static Menu Instance;
+
+    private void Awake()
+    {
+        //if (Instance != null && Instance != this)
+          //  Destroy(gameObject);    // Suppression d'une instance précédente (sécurité)
+        Instance = this;
+    }
     private void Start()
     {
-        Fade.DOFade(0, 1f).OnComplete(SetActiveFadeFalse);
+        SetActiveFadeTrue();
+        Fade.DOFade(0, 2f).OnComplete(SetActiveFadeFalse);
     }
     private void SetActiveFadeFalse()
     {
         FadeObj.SetActive(false);
     }
-    private void SetActiveFadeTrue()
+    public void SetActiveFadeTrue()
     {
         FadeObj.SetActive(true);
     }
+
+    public void FadeOut()
+    {
+        Fade.DOFade(1, 1f);
+    }
+
     public void OnClickPlay()
     {
         Fade.DOFade(1, 1f).OnComplete(FadeCompletePlay);

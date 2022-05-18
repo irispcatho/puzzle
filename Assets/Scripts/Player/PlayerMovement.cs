@@ -32,8 +32,15 @@ public class PlayerMovement : MonoBehaviour
                 isOnBumperCar = true;
         }
 
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
         if (other.CompareTag("End"))
+        {
             print("fin du niveau");
+            ChangeScene.Instance.UpdateScene();
+        }
     }
 
     private void OnTriggerExit(Collider other)
