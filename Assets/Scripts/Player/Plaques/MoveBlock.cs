@@ -15,7 +15,7 @@ public class MoveBlock : MonoBehaviour
     public float Speed;
     const float offsetToInit = .05f;
     const float distanceToSnap = 3f;
-
+    public float Scale = 1.2f;
 
     public static MoveBlock Instance;
     private void Awake()
@@ -44,7 +44,19 @@ public class MoveBlock : MonoBehaviour
                 NbOfBloc[i].GetComponent<SideOfBlock>().isPlaced = true;
             }
         }
-    }    
+    }
+
+
+    private void OnMouseOver()
+    {
+        gameObject.transform.DOScale(Scale, 0.3f);
+    }
+
+
+    private void OnMouseExit()
+    {
+        gameObject.transform.DOScale(1f, 0.3f);
+    }
 
     void Update()
     {
