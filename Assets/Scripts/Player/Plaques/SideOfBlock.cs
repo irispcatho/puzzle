@@ -9,24 +9,21 @@ public class SideOfBlock : MonoBehaviour
     public int TopBotLeftRight;
     public bool isPlaced, stuckToPlayer;
     bool isTouchingGround;
-    public float timeToDispawn;
-    Vector3 posWhenItsPlaced;
     const float timeToScaleDownBloc = 1f;
 
     public void MakeDisappear()
     {
         transform.DOScale(0, timeToScaleDownBloc).OnComplete(DestroyBloc);
     }
+    void DestroyBloc()
+    {
+        Destroy(gameObject);
+    }
 
     public void StuckToPlayer()
     {
         stuckToPlayer = true;
         transform.DORotate(new Vector3(0, -90, 0), 1f);
-    }
-
-    void DestroyBloc()
-    {
-        Destroy(gameObject);
     }
 
     private void Update()
@@ -59,7 +56,6 @@ public class SideOfBlock : MonoBehaviour
     {
         if (isPlaced)
         {
-            posWhenItsPlaced = transform.position;
             yield return new WaitForSeconds(.5f);
             MakeDisappear();
         }
