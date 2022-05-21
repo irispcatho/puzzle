@@ -308,10 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08870c4ca4466e44485fad0693a0501c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopBotLeftRight: 2
+  TopBotLeftRight: 1
   isPlaced: 0
   stuckToPlayer: 0
-  Mode: {fileID: 5711191832428487790}
 --- !u!65 &9002636527640362106
 BoxCollider:
   m_ObjectHideFlags: 0
