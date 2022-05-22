@@ -18,9 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/UI-Menu/Credits.unity
     guid: fe86f1af5b5d7d442b171eb202b42185
   - enabled: 1
+    path: Assets/Scenes/Levels/Niv 1.unity
+    guid: 655466cda3bc7204c8755bdbda7f917b
+  - enabled: 1
     path: Assets/Scenes/Levels/Niv 2.unity
-    guid: 166c231abb6e07249a31f6c6bd90ef10
+    guid: d3ca7d652a1d5124d838ba2e07bc5498
   - enabled: 1
     path: Assets/Scenes/Levels/Niv 3.unity
-    guid: 8ef71523b7331a9449e98b519a183670
+    guid: d6c78268cc3316e499018e34aca458ea
+  - enabled: 1
+    path: Assets/Scenes/Levels/Niv 4.unity
+    guid: 5e2a5cabb942f0a4da59694d23ff737a
+  - enabled: 1
+    path: Assets/Scenes/Levels/Niv 5.unity
+    guid: 16af4234043055b4098e97569b6e9718
   m_configObjects: {}

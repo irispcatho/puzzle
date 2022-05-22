@@ -9,6 +9,11 @@ public class ChooseLevel : MonoBehaviour
 
     public void OnClick()
     {
-        print(nb.text);
+        if (ChangeScene.Instance.LevelsUnlocked >= int.Parse(nb.text))
+        {
+            ChangeScene.Instance.ChooseLevel(int.Parse(nb.text));
+            //print(int.Parse(nb.text));
+            //print(ChangeScene.Instance.LevelsUnlocked);
+        }
     }
 }
