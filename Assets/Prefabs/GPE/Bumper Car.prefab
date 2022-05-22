@@ -26,10 +26,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6752639671527543984}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.02, y: 1.13, z: -1.02}
   m_LocalScale: {x: 0.9898582, y: 0.16667, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 9172090258928670231}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6752639671527543984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -94,4 +95,78 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000001, z: 1}
-  m_Center: {x: 0.000000055879354, y: 0, z: 0}
+  m_Center: {x: 0.000000055879354, y: 0.67, z: 0}
+--- !u!1001 &4450310961818453357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 6752639671527543985}
+    m_Modifications:
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5314443202680621504, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+      propertyPath: m_Name
+      value: TapisRoulant_prefab
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+--- !u!4 &9172090258928670231 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4795033168932819834, guid: 526e6c21c59564d499123ac66d2cd9e3, type: 3}
+  m_PrefabInstance: {fileID: 4450310961818453357}
+  m_PrefabAsset: {fileID: 0}
