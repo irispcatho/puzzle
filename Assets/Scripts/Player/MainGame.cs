@@ -136,7 +136,7 @@ public class MainGame : MonoBehaviour
                 coordPlayer.x--;
             }
         }
-        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+        if (DetectionObjs[2].GetComponent<DetectionGround>().isTouchingFerrisWheel == true && DetectionFence[2].GetComponent<DetectionFence>().isTouchingFence == false)
             RotateMap();
     }
     public void MoveRight()
@@ -155,7 +155,7 @@ public class MainGame : MonoBehaviour
             }
         }
 
-        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+        if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingFerrisWheel == true && DetectionFence[3].GetComponent<DetectionFence>().isTouchingFence == false)
             RotateMap();
     }
     public void MoveTop()
@@ -173,7 +173,7 @@ public class MainGame : MonoBehaviour
                 coordPlayer.z++;
             }
         }
-        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+        if (DetectionObjs[0].GetComponent<DetectionGround>().isTouchingFerrisWheel == true && DetectionFence[0].GetComponent<DetectionFence>().isTouchingFence == false)
             RotateMap();
     }
     public void MoveBot()
@@ -191,7 +191,7 @@ public class MainGame : MonoBehaviour
                 coordPlayer.z--;
             }
         }
-        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFerrisWheel == true)
+        if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFerrisWheel == true && DetectionFence[1].GetComponent<DetectionFence>().isTouchingFence == false)
             RotateMap();        
     }
 
