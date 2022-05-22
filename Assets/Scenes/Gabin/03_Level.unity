@@ -4227,7 +4227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574253, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.6
+      value: -5.58
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574253, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4264,6 +4264,18 @@ PrefabInstance:
     - target: {fileID: 1551713493775574253, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551713493775574254, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: m_Size.z
+      value: 0.9931048
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551713493775574254, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: m_Center.x
+      value: -3.6439232e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551713493775574254, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: m_Center.z
+      value: -0.0034455652
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574288, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: Mouse
@@ -5157,6 +5169,18 @@ PrefabInstance:
     - target: {fileID: 1551713493775574253, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551713493775574254, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: m_Size.z
+      value: 2.4150927
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551713493775574254, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: m_Center.x
+      value: -5.608373e-15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1551713493775574254, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
+      propertyPath: m_Center.z
+      value: -0.70754695
       objectReference: {fileID: 0}
     - target: {fileID: 1551713493775574288, guid: 9b1157a6ba645354ab911d166f901234, type: 3}
       propertyPath: Mouse
