@@ -308,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08870c4ca4466e44485fad0693a0501c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopBotLeftRight: 1
+  TopBotLeftRight: 2
   isPlaced: 0
   stuckToPlayer: 0
   toFade:

@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class MainGame : MonoBehaviour
 {
-    public GameObject[] PrefabGround, DetectionObjs, DetectionFence;
+    public GameObject[] DetectionObjs, DetectionFence;
     public GameObject Player, AssetPlayer;
     public Transform Map, MapGlobal, SpawnPlayer;
     public int Size;
