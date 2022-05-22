@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
             if(!mustRotate)
                 isOnBumperCar = true;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)

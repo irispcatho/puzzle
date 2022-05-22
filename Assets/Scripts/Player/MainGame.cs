@@ -6,7 +6,7 @@ using DG.Tweening;
 public class MainGame : MonoBehaviour
 {
     public GameObject[] PrefabGround, DetectionObjs, DetectionFence;
-    public GameObject Player;
+    public GameObject Player, AssetPlayer;
     public Transform Map, MapGlobal, SpawnPlayer;
     public int Size;
     public float Distance = 1;
@@ -16,6 +16,7 @@ public class MainGame : MonoBehaviour
     private bool hasMoved;
     private bool canMove = true;
     public float SpeedMovement = 0.5f;
+    const float timeToRotaPlayer = 0.4f;
 
 
 
@@ -128,6 +129,7 @@ public class MainGame : MonoBehaviour
         {
             if(canMove)
             {
+                AssetPlayer.transform.DORotate(new Vector3(0, 90, 0), timeToRotaPlayer);
                 canMove = false;
                 //Player.transform.position = new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z);
                 Player.transform.DOMove(new Vector3(Player.transform.position.x - Distance, 0, Player.transform.position.z), SpeedMovement, false).OnComplete(CanMove);
@@ -145,6 +147,7 @@ public class MainGame : MonoBehaviour
         {
             if (canMove)
             {
+                AssetPlayer.transform.DORotate(new Vector3(0, -90, 0), timeToRotaPlayer);
                 canMove = false;
                 //Player.transform.position = new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z);
                 Player.transform.DOMove(new Vector3(Player.transform.position.x + Distance, 0, Player.transform.position.z), SpeedMovement, false).OnComplete(CanMove);
@@ -163,6 +166,7 @@ public class MainGame : MonoBehaviour
         {
             if (canMove)
             {
+                AssetPlayer.transform.DORotate(new Vector3(0, 180, 0), timeToRotaPlayer);
                 canMove = false;
                 //Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance);
                 Player.transform.DOMove(new Vector3(Player.transform.position.x, 0, Player.transform.position.z + Distance), SpeedMovement, false).OnComplete(CanMove);
@@ -180,6 +184,7 @@ public class MainGame : MonoBehaviour
         {
             if (canMove)
             {
+                AssetPlayer.transform.DORotate(new Vector3(0, 0, 0), timeToRotaPlayer);
                 canMove = false;
                 //Player.transform.position = new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance);
                 Player.transform.DOMove(new Vector3(Player.transform.position.x, 0, Player.transform.position.z - Distance), SpeedMovement, false).OnComplete(CanMove);
