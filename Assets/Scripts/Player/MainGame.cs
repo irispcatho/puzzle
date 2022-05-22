@@ -91,16 +91,16 @@ public class MainGame : MonoBehaviour
 
         if (Player.GetComponent<PlayerMovement>().isOnBumperCar == true)
         {
-            if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == true)
-            {
+            //if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == true)
+            //{
                 hasMoved = false;
+                StartCoroutine(BumperMove());
                 Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
-                StartCoroutine(BumperRight());
-            }
-            else
-            {
+            //}
+            //else
+            //{
                 Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
-            }
+            //}
         }
     }
 
@@ -207,7 +207,7 @@ public class MainGame : MonoBehaviour
             MoveRight();
     }
 
-    IEnumerator BumperRight()
+    IEnumerator BumperMove()
     {
         yield return new WaitForSeconds(0.5f);
         if(!hasMoved)

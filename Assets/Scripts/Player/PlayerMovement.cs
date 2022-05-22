@@ -46,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.CompareTag("BumperCar"))
             mustRotate = false;
+
+        if(other.CompareTag("BlocRotate")) ;
+            mustRotate = false;
     }
     public IEnumerator MovePlayer(int side)
     {
