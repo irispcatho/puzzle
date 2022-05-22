@@ -8474,6 +8474,7 @@ MonoBehaviour:
   - {fileID: 1806750307}
   - {fileID: 1875646432}
   Player: {fileID: 2050535328}
+  AssetPlayer: {fileID: 3490024768449207064}
   Map: {fileID: 1404366318}
   MapGlobal: {fileID: 1139855496}
   SpawnPlayer: {fileID: 272775137}
@@ -10404,6 +10405,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c3bc12c5bffbc6479639c61b2fddb33, type: 3}
+--- !u!1 &3490024768449207064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 902813198357427239, guid: 8c3bc12c5bffbc6479639c61b2fddb33, type: 3}
+  m_PrefabInstance: {fileID: 3490024768449207063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5760277966579506694
 PrefabInstance:
   m_ObjectHideFlags: 0
