@@ -26,7 +26,7 @@ public class SideOfBlock : MonoBehaviour
     public void StuckToPlayer()
     {
         stuckToPlayer = true;
-        transform.DOMove(new Vector3(0, -90, 0), 1f);
+        //transform.DOMove(new Vector3(0, -90, 0), 1f);
     }
 
     private void Update()

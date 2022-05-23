@@ -12,7 +12,7 @@ public class MoveBlock : MonoBehaviour
 
     Vector3 InitialPos, worldPosition;
     Plane plane = new Plane(Vector3.up, -1);
-    public float Speed;
+    const float Speed = 10;
     const float offsetToInit = .05f;
     const float distanceToSnap = 3f;
     const float Scale = 1.2f;
@@ -63,13 +63,10 @@ public class MoveBlock : MonoBehaviour
 
     private void OnMouseExit()
     {
-        if (!isPlaced)
+        for (int i = 0; i < NbOfBloc.Length; i++)
         {
-            for (int i = 0; i < NbOfBloc.Length; i++)
-            {
-                NbOfBloc[i].transform.DOKill();
-                NbOfBloc[i].transform.DOScale(1f, .3f);
-            }
+            NbOfBloc[i].transform.DOKill();
+            NbOfBloc[i].transform.DOScale(1f, .3f);
         }
     }
 
