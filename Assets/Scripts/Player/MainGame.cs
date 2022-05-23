@@ -30,6 +30,7 @@ public class MainGame : MonoBehaviour
 
     IEnumerator Start()
     {
+        AudioManager.instance.Play("Musique");
         yield return new WaitForSeconds(.01f);
         Player.transform.position = SpawnPlayer.position;
         #region
@@ -93,13 +94,13 @@ public class MainGame : MonoBehaviour
         {
             //if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == true)
             //{
-                hasMoved = false;
-                StartCoroutine(BumperMove());
-                Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
+            AudioManager.instance.Play("Auto-tamponneuse");
+            hasMoved = false;
+            StartCoroutine(BumperMove());
+            Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
             //}
             //else
             //{
-                Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
             //}
         }
     }
@@ -111,6 +112,7 @@ public class MainGame : MonoBehaviour
 
     IEnumerator waitToRotateMap()
     {
+        AudioManager.instance.Play("RotationCam");
         yield return new WaitForSeconds(.5f);
         rotate++;
         if (rotate >= 4)
