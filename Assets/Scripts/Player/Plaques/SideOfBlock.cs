@@ -9,17 +9,13 @@ public class SideOfBlock : MonoBehaviour
     public int TopBotLeftRight;
     public bool isPlaced, stuckToPlayer;
     bool isTouchingGround;
-    const float timeToDestroy = 1f;
-    public GameObject[] toFade;
+    const float timeToDestroy = 2f;
 
     public void MakeDisappear()
     {
         //transform.DOScale(0, timeToScaleDownBloc).OnComplete(DestroyBloc);
         transform.DOMoveY(2.3f, timeToDestroy);
-        for (int i = 0; i < toFade.Length; i++)
-        {
-            toFade[i].GetComponent<MeshRenderer>().material.DOFade(0, timeToDestroy).OnComplete(DestroyBloc);
-        }
+        gameObject.GetComponentInChildren<MeshRenderer>().material.DOFade(0, timeToDestroy).OnComplete(DestroyBloc);
         //gameObject.GetComponentInChildren<MeshRenderer>().material.DOFade(0, 2f).OnComplete(DestroyBloc);
     }
     void DestroyBloc()
