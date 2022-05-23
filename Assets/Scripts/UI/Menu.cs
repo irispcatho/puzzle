@@ -39,6 +39,7 @@ public class Menu : MonoBehaviour
 
     public void OnClickPlay()
     {
+        AudioManager.instance.Play("ClicMenu");
         Fade.DOFade(1, 1f).OnComplete(FadeCompletePlay);
     }
 
@@ -49,6 +50,7 @@ public class Menu : MonoBehaviour
 
     public void OnClickCredits()
     {
+        AudioManager.instance.Play("ClicMenu");
         Fade.DOFade(1, 1f).OnComplete(FadeCompleteCredits);
     }
 
@@ -59,6 +61,7 @@ public class Menu : MonoBehaviour
 
     public void OnClickMenu()
     {
+        AudioManager.instance.Play("ClicMenu");
         Fade.DOFade(1, 1f).OnComplete(FadeCompleteMenu);
     }
 
@@ -69,6 +72,7 @@ public class Menu : MonoBehaviour
 
     public void OnClickQuit()
     {
+        AudioManager.instance.Play("ClicMenu");
         Application.Quit();
     }
 

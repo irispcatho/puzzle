@@ -29,6 +29,7 @@ public class ChangeScene : MonoBehaviour
 
     public void ChooseLevel(int which)
     {
+        AudioManager.instance.Play("ClicMenu");
         WhichScene = which;
         print("go to scene : Niv " + WhichScene);
         Menu.Instance.SetActiveFadeTrue();
