@@ -82,6 +82,7 @@ MonoBehaviour:
   isPlaced: 0
   NbOfBloc:
   - {fileID: 8456939045168408468}
+  Speed: 10
 --- !u!1 &8456939045168408468
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +182,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2554791ec501b3a419154beb2b8a6649, type: 3}
       propertyPath: m_LocalScale.z
-      value: 100
+      value: 24.140383
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2554791ec501b3a419154beb2b8a6649, type: 3}
       propertyPath: m_LocalPosition.x
