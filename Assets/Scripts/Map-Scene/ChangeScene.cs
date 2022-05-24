@@ -47,7 +47,7 @@ public class ChangeScene : MonoBehaviour
     {
         for (int i = 0; i < LevelsUnlocked; i++)
         {
-            LevelsToChoose[i].transform.GetChild(0).gameObject.SetActive(false);
+            LevelsToChoose[i].transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }
