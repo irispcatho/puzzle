@@ -345,6 +345,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rota
       objectReference: {fileID: 0}
+    - target: {fileID: 2382850578995711763, guid: 091c254bfbda22742b9fc04d5a46fe30, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d91e75ebdefa1d4aa95bd970ed781b3, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 091c254bfbda22742b9fc04d5a46fe30, type: 3}
 --- !u!4 &116332151 stripped
