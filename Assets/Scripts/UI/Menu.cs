@@ -47,6 +47,8 @@ public class Menu : MonoBehaviour
     private void FadeCompletePlay()
     {
         SceneManager.LoadScene("LevelSelection");
+        GetAllLvl.Instance.Cadena();
+        print("test");
         //SetFadeFalse();
     }
 

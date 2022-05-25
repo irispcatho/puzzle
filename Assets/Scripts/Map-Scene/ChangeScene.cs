@@ -7,7 +7,7 @@ public class ChangeScene : MonoBehaviour
 {
     public int WhichScene = 0;
     public int LevelsUnlocked;
-    public GameObject[] LevelsToChoose;
+    
 
     public static ChangeScene Instance;
     private void Awake()
@@ -43,14 +43,7 @@ public class ChangeScene : MonoBehaviour
         if (WhichScene >= 15)
             SceneManager.LoadScene("Menu");
         SceneManager.LoadScene("Niv " + WhichScene);
-        print("allo le chgnt de niveau");
     }
 
-    private void Start()
-    {
-        for (int i = 0; i < LevelsUnlocked; i++)
-        {
-            LevelsToChoose[i].transform.GetChild(1).gameObject.SetActive(false);
-        }
-    }
+    
 }

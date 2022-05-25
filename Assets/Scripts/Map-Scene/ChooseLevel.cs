@@ -11,9 +11,8 @@ public class ChooseLevel : MonoBehaviour
     {
         if (ChangeScene.Instance.LevelsUnlocked >= int.Parse(nb.text))
         {
+            GetAllLvl.Instance.PutOffCadena();
             ChangeScene.Instance.ChooseLevel(int.Parse(nb.text));
-            //print(int.Parse(nb.text));
-            //print(ChangeScene.Instance.LevelsUnlocked);
         }
     }
 }
