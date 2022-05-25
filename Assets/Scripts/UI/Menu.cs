@@ -20,14 +20,14 @@ public class Menu : MonoBehaviour
     }
     private void Start()
     {
-        SetActiveFadeTrue();
-        Fade.DOFade(0, 2f).OnComplete(SetActiveFadeFalse);
+        SetFadeTrue();
+        Fade.DOFade(0, 2f).OnComplete(SetFadeFalse);
     }
-    private void SetActiveFadeFalse()
+    private void SetFadeFalse()
     {
         FadeObj.SetActive(false);
     }
-    public void SetActiveFadeTrue()
+    public void SetFadeTrue()
     {
         FadeObj.SetActive(true);
     }
@@ -40,34 +40,40 @@ public class Menu : MonoBehaviour
     public void OnClickPlay()
     {
         AudioManager.instance.Play("ClicMenu");
+        SetFadeTrue();
         Fade.DOFade(1, 1f).OnComplete(FadeCompletePlay);
     }
 
     private void FadeCompletePlay()
     {
         SceneManager.LoadScene("LevelSelection");
+        //SetFadeFalse();
     }
 
     public void OnClickCredits()
     {
         AudioManager.instance.Play("ClicMenu");
+        SetFadeTrue();
         Fade.DOFade(1, 1f).OnComplete(FadeCompleteCredits);
     }
 
     private void FadeCompleteCredits()
     {
         SceneManager.LoadScene("Credits");
+        //SetFadeFalse();
     }
 
     public void OnClickMenu()
     {
         AudioManager.instance.Play("ClicMenu");
+        SetFadeTrue();
         Fade.DOFade(1, 1f).OnComplete(FadeCompleteMenu);
     }
 
     private void FadeCompleteMenu()
     {
         SceneManager.LoadScene("Menu");
+        //SetFadeFalse();
     }
 
     public void OnClickQuit()
@@ -78,7 +84,7 @@ public class Menu : MonoBehaviour
 
     public void Restart()
     {
-        SetActiveFadeTrue();
+        SetFadeTrue();
         Fade.DOFade(1, 1f).OnComplete(FadeCompleteRestart);
     }
     private void FadeCompleteRestart()

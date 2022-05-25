@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 1726143296040004014}
   - component: {fileID: 3890937949929506414}
   - component: {fileID: 2016303187284946583}
+  - component: {fileID: 2813800605113031346}
   m_Layer: 0
   m_Name: Box001
-  m_TagString: Untagged
+  m_TagString: Ferris
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315508481258193578}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.8809013, y: 0.00000090779224, z: -23.66296}
-  m_LocalScale: {x: 1, y: 0.741198, z: 1}
+  m_LocalPosition: {x: -5.8579, y: -0.5, z: -9.9}
+  m_LocalScale: {x: 1.021786, y: 0.7573458, z: 1.021786}
   m_Children: []
   m_Father: {fileID: 7537251411271325389}
   m_RootOrder: 0
@@ -81,6 +82,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2813800605113031346
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 315508481258193578}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 28.498512, y: 41.47016, z: 173.67622}
+  m_Center: {x: 0, y: 22.423832, z: -3.2676375}
 --- !u!1 &1935265017639668693
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,8 +121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935265017639668693}
   m_LocalRotation: {x: 0.000000021855696, y: -0.000000006017065, z: -1.3150715e-16, w: 1}
-  m_LocalPosition: {x: -6.6194863, y: 40.498047, z: -40.69088}
-  m_LocalScale: {x: 1.387, y: 1.387, z: 3.204075}
+  m_LocalPosition: {x: -6.6127, y: 40.880405, z: -27.298998}
+  m_LocalScale: {x: 1.4172173, y: 1.4172173, z: 3.2738793}
   m_Children: []
   m_Father: {fileID: 7537251411271325389}
   m_RootOrder: 1

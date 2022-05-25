@@ -22,7 +22,7 @@ public class ChangeScene : MonoBehaviour
     {
         WhichScene++;
         print("go to scene : Niv " + WhichScene);
-        Menu.Instance.SetActiveFadeTrue();
+        Menu.Instance.SetFadeTrue();
         Menu.Instance.FadeOut();
         StartCoroutine(waitToChangeLvl());
     }
@@ -32,7 +32,7 @@ public class ChangeScene : MonoBehaviour
         AudioManager.instance.Play("ClicMenu");
         WhichScene = which;
         print("go to scene : Niv " + WhichScene);
-        Menu.Instance.SetActiveFadeTrue();
+        Menu.Instance.SetFadeTrue();
         Menu.Instance.FadeOut();
         StartCoroutine(waitToChangeLvl());
     }
@@ -40,6 +40,8 @@ public class ChangeScene : MonoBehaviour
     IEnumerator waitToChangeLvl()
     {
         yield return new WaitForSeconds(1f);
+        if (WhichScene >= 15)
+            SceneManager.LoadScene("Menu");
         SceneManager.LoadScene("Niv " + WhichScene);
     }
 
