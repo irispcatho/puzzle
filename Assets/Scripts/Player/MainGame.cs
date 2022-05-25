@@ -17,7 +17,7 @@ public class MainGame : MonoBehaviour
     private bool canMove = true;
     public float SpeedMovement = 0.5f;
     const float timeToRotaPlayer = 0.4f;
-
+    private bool hasRotate = false;
 
 
     public static MainGame Instance;
@@ -71,46 +71,44 @@ public class MainGame : MonoBehaviour
 
     private void Update()
     {
-        //print(coordPlayer.z);
-        if (Input.GetKeyDown(KeyCode.Z))
-            MoveTop();
-        if (Input.GetKeyDown(KeyCode.S))
-            MoveBot();
-        if (Input.GetKeyDown(KeyCode.Q))
-            MoveLeft();
-        if (Input.GetKeyDown(KeyCode.D))
-            MoveRight();
+        //if (Input.GetKeyDown(KeyCode.Z))
+        //    MoveTop();
+        //if (Input.GetKeyDown(KeyCode.S))
+        //    MoveBot();
+        //if (Input.GetKeyDown(KeyCode.Q))
+        //    MoveLeft();
+        //if (Input.GetKeyDown(KeyCode.D))
+        //    MoveRight();
 
-        if (Input.GetKeyDown(KeyCode.L)) // PRINT LES COORDS
-        {
-            print(coordPlayer.z + " z");
-            print(coordPlayer.x + " x");
-        }
+        //if (Input.GetKeyDown(KeyCode.L)) // PRINT LES COORDS
+        //{
+        //    print(coordPlayer.z + " z");
+        //    print(coordPlayer.x + " x");
+        //}
 
-        if (Input.GetKeyDown(KeyCode.R)) // ROTATION
-           RotateMap();
+        //if (Input.GetKeyDown(KeyCode.R)) // ROTATION
+        //    RotateMap();
 
         if (Player.GetComponent<PlayerMovement>().isOnBumperCar == true)
         {
-            //if (DetectionObjs[3].GetComponent<DetectionGround>().isTouchingGround == true)
-            //{
             AudioManager.instance.Play("Auto-tamponneuse");
             hasMoved = false;
             StartCoroutine(BumperMove());
             Player.GetComponent<PlayerMovement>().isOnBumperCar = false;
-            //}
-            //else
-            //{
-            //}
         }
     }
 
     public void RotateMap()
     {
-        StartCoroutine(waitToRotateMap());
+        if (!hasRotate)
+        {
+            StartCoroutine(WaitToRotateMap());
+            print("Rotation");
+            hasRotate = true;
+        }
     }
 
-    IEnumerator waitToRotateMap()
+    IEnumerator WaitToRotateMap()
     {
         AudioManager.instance.Play("RotationCam");
         yield return new WaitForSeconds(.5f);
@@ -121,6 +119,8 @@ public class MainGame : MonoBehaviour
         MapGlobal.transform.DORotate(new Vector3(0, rotaY, 0), 1f);
         DetectionObjs[4].transform.Rotate(0, -90, 0, Space.Self);
         DetectionFence[4].transform.Rotate(0, -90, 0, Space.Self);
+        hasRotate = false;
+        
     }
 
     public void MoveLeft()
@@ -129,7 +129,7 @@ public class MainGame : MonoBehaviour
             print("mur a gauche");
         else
         {
-            if(canMove)
+            if (canMove)
             {
                 AssetPlayer.transform.DORotate(new Vector3(0, 90, 0), timeToRotaPlayer);
                 canMove = false;
@@ -194,7 +194,7 @@ public class MainGame : MonoBehaviour
             }
         }
         if (DetectionObjs[1].GetComponent<DetectionGround>().isTouchingFerrisWheel == true && DetectionFence[1].GetComponent<DetectionFence>().isTouchingFence == false)
-            RotateMap();        
+            RotateMap();
     }
 
     public void Move(int WhichSide)
@@ -212,7 +212,7 @@ public class MainGame : MonoBehaviour
     IEnumerator BumperMove()
     {
         yield return new WaitForSeconds(0.5f);
-        if(!hasMoved)
+        if (!hasMoved)
         {
             if (rotate == 0)
                 MoveRight();
