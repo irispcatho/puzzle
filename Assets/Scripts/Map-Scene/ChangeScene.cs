@@ -43,6 +43,7 @@ public class ChangeScene : MonoBehaviour
         if (WhichScene >= 15)
             SceneManager.LoadScene("Menu");
         SceneManager.LoadScene("Niv " + WhichScene);
+        print("allo le chgnt de niveau");
     }
 
     private void Start()
