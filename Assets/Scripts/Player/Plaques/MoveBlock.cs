@@ -54,8 +54,11 @@ public class MoveBlock : MonoBehaviour
         {
             for (int i = 0; i < NbOfBloc.Length; i++)
             {
-                NbOfBloc[i].transform.DOKill();
-                NbOfBloc[i].transform.DOScale(Scale, .5f);
+                if (NbOfBloc[i] != null)
+                {
+                    NbOfBloc[i].transform.DOKill();
+                    NbOfBloc[i].transform.DOScale(Scale, .5f);
+                }
             }
         }
     }

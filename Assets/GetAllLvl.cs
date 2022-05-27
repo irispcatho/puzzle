@@ -10,16 +10,22 @@ public class GetAllLvl : MonoBehaviour
     bool asMadeCadena;
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
         if (Instance != null && Instance != this)
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité)
         Instance = this;
     }
 
-    private void Update()
+    private void Start()
     {
-        if (!asMadeCadena)
-            Cadena();
+        //Cadena();
+        print("blablala");
+    }
+
+    public void LaunchCadena()
+    {
+        print("ça lance");
+        //Cadena();
     }
 
     public void Cadena()
@@ -29,10 +35,5 @@ public class GetAllLvl : MonoBehaviour
             LevelsToChoose[i].transform.GetChild(1).gameObject.SetActive(false);
         }
         asMadeCadena = true;
-    }
-
-    public void PutOffCadena()
-    {
-        asMadeCadena = false;
     }
 }

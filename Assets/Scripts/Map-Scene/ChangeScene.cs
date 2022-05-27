@@ -21,6 +21,10 @@ public class ChangeScene : MonoBehaviour
     public void UpdateScene()
     {
         WhichScene++;
+        if (WhichScene >= LevelsUnlocked)
+        {
+            LevelsUnlocked++;
+        }
         print("go to scene : Niv " + WhichScene);
         Menu.Instance.SetFadeTrue();
         Menu.Instance.FadeOut();
