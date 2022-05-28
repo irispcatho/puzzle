@@ -3841,6 +3841,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnBumperCar: 0
   mustRotate: 0
+  GoToUpdateScene: {fileID: 1914966055322782524}
 --- !u!65 &521613297
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18360,7 +18361,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Glisser les plaques en bas de votre ecran sur le sol pour deplacer le joueur
+  m_text: Glissez les plaques en bas de votre ecran sur le sol pour deplacer le joueur
     !
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dd76e0e30dc9a8d4d98a0606ac44644e, type: 2}
@@ -19684,6 +19685,68 @@ PrefabInstance:
       objectReference: {fileID: 1831283595}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfcd8ab566e48a949bc40062b47dec18, type: 3}
+--- !u!1001 &1914966055322782523
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2383385150674582, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1619542917095037273, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+      propertyPath: m_Name
+      value: UpdateScene
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+--- !u!1 &1914966055322782524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1619542917095037273, guid: d9efc64e7c45abe48a59c1c186f9043c, type: 3}
+  m_PrefabInstance: {fileID: 1914966055322782523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4226090948812079180
 PrefabInstance:
   m_ObjectHideFlags: 0

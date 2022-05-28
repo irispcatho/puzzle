@@ -8,21 +8,15 @@ public class ChooseLevel : MonoBehaviour
     public TextMeshProUGUI nb;
     public GameObject Cadena;
 
-    private void Start()
-    {
-        if (int.Parse(nb.text) <= ChangeScene.Instance.LevelsUnlocked)
-        {
-            Cadena.SetActive(false);
-            print("Starto");
-        }
-    }
 
     public void OnClick()
     {
-        if (ChangeScene.Instance.LevelsUnlocked >= int.Parse(nb.text))
+        print("ça clique sur le bouton : " + nb.text);
+        if (int.Parse(nb.text) <= GetAllLvl.Instance.LvlUnlocked)
         {
-            //GetAllLvl.Instance.PutOffCadena();
-            ChangeScene.Instance.ChooseLevel(int.Parse(nb.text));
+            GetAllLvl.Instance.PutOffCadena();
+            GetAllLvl.Instance.LaunchChooseLevel(int.Parse(nb.text));
+            //ChangeScene.Instance.ChooseLevel(int.Parse(nb.text));
         }
     }
 }

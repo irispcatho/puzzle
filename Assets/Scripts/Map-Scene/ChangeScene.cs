@@ -12,16 +12,16 @@ public class ChangeScene : MonoBehaviour
     public static ChangeScene Instance;
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);
         if (Instance != null && Instance != this)
             Destroy(gameObject);    // Suppression d'une instance précédente (sécurité)
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void UpdateScene()
     {
         WhichScene++;
-        if (WhichScene >= LevelsUnlocked)
+        if (WhichScene > LevelsUnlocked)
         {
             LevelsUnlocked++;
         }
@@ -45,7 +45,7 @@ public class ChangeScene : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         if (WhichScene >= 15)
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Credits");
         SceneManager.LoadScene("Niv " + WhichScene);
     }
 

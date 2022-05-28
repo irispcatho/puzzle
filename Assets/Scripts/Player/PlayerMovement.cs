@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     const float timeToMovePlayer = 1f;
     public bool isOnBumperCar;
     public bool mustRotate = false;
+    public GameObject GoToUpdateScene;
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("BlocMovement") && other.GetComponent<SideOfBlock>().isPlaced)
@@ -38,7 +39,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.CompareTag("End"))
         {
             print("fin du niveau");
-            ChangeScene.Instance.UpdateScene();
+            GoToUpdateScene.GetComponent<StickToSceneManager>().CanUpdateScene = true;
+            //ChangeScene.Instance.UpdateScene();
         }
     }
 

@@ -15,6 +15,7 @@ TagManager:
   - Ferris
   - BumperCar
   - End
+  - SceneManager
   layers:
   - Default
   - TransparentFX
